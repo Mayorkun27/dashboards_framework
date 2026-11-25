@@ -10,18 +10,14 @@ function App() {
     <>
       <Toaster />
       <Routes>
-        <Route index element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        
+        <Route element={<MainLayout pageName="Dashboard" />}>
+          <Route index element={<Overview />} />
+          <Route path="dashboard/overview" element={<Overview />} />
+        </Route>
+
         <Route path="*" element={<NotFound />} />
-        <Route
-          index
-          path="/"
-          element={<MainLayout pageName="Dashboard" children={<Overview />} />}
-        />
-        <Route
-          index
-          path="/dashboard/overview"
-          element={<MainLayout pageName="Dashboard" children={<Overview />} />}
-        />
       </Routes>
     </>
   );

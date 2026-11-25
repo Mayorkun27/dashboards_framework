@@ -1,21 +1,21 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import TopNav from "../components/navs/TopNav";
 import { HiBars3 } from "react-icons/hi2";
 import { FaXmark } from "react-icons/fa6";
 import Sidebar from "../components/navs/Sidebar";
 
 type LayoutProps = {
-  children: React.ReactNode;
-  pageName: string;
+  children?: React.ReactNode;
+  pageName?: string;
   showSearchBar?: boolean;
 };
 
 const MainLayout = ({
   children,
-  pageName,
+  pageName = "Dashboard",
   showSearchBar
 }: LayoutProps) => {
   useEffect(() => {
@@ -156,7 +156,7 @@ const MainLayout = ({
                 }}
                 className="px-4 h-full overflow-y-scroll no-scrollbar pb-4"
               >
-                {children}
+                {children ?? <Outlet />}
               </motion.div>
             </AnimatePresence>
           </div>

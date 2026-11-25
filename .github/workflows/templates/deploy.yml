@@ -1,4 +1,4 @@
-name: Deploy Pineleaf Land BuyBack Admin Console via FTP
+name: Deploy Dashboard Framework via FTP
 
 on:
   workflow_run:
@@ -28,7 +28,6 @@ jobs:
         env:
           VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
           VITE_COUNTRY_BASE_URL: ${{ secrets.VITE_COUNTRY_BASE_URL }}
-          VITE_PAYSTACK_SECRET_KEY: ${{ secrets.VITE_PAYSTACK_SECRET_KEY }}
           VITE_VAPID_PUBLIC_KEY: ${{ secrets.VITE_VAPID_PUBLIC_KEY }}
           
           VITE_ECHO_WS_HOST: ${{ secrets.VITE_ECHO_WS_HOST }}
